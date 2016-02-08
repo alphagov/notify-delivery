@@ -14,9 +14,9 @@ def test_empty_queue(mocker,
 @moto.mock_sqs
 def test_process_sms_content_message(mocker,
                                      delivery_config,
-                                     mock_alpha_send_sms,
-                                     populate_queue_with_sms_content_msg):
-    pass
+                                     mock_alpha_send_sms):
+    from . import populate_queue_with_sms_content_msg
+    populate_queue_with_sms_content_msg(mocker, delivery_config)
     # process_all_queues(delivery_config, delivery_config['NOTIFICATION_QUEUE_PREFIX'])
     # msg = populate_queue_with_sms_content_msg.receive_messages()[0]
     # content = decrypt_content(delivery_config, msg.body)
