@@ -20,7 +20,7 @@ def create_sqs_connection():
 
 
 def create_sqs_resource():
-    return boto3.resource('sqs', "eu-west-1")
+    return boto3.resource('sqs', region_name="eu-west-1")
 
 
 @moto.mock_sqs
