@@ -16,6 +16,7 @@ def test_process_sms_content_message(mocker,
                                      delivery_config,
                                      mock_alpha_send_sms,
                                      populate_queue_with_sms_content_msg):
+    pass
     # from tests.conftest import populate_queue_with_sms_content_msg
     # queue = populate_queue_with_sms_content_msg(mocker, delivery_config)
     # process_all_queues(delivery_config, delivery_config['NOTIFICATION_QUEUE_PREFIX'])
