@@ -189,20 +189,20 @@ def populate_queue_with_sms_content_msg(mocker, delivery_config, queue_name='tes
     queue = None
     sqs_connection = create_sqs_connection()
     sqs_resource = create_sqs_resource()
-    # queue = create_queue(sqs_connection, queue_name)
-    # notification = create_sms_content_notification()
-    # msg = create_message(delivery_config, sqs_resource, queue, "sms", notification)
+    queue = create_queue(sqs_connection, queue_name)
+    notification = create_sms_content_notification()
+    msg = create_message(delivery_config, sqs_resource, queue, "sms", notification)
 
-    # def _receive(MaxNumberOfMessages=1, VisibilityTimeout=60, MessageAttributeNames=[]):
-    #     return [msg]
+    def _receive(MaxNumberOfMessages=1, VisibilityTimeout=60, MessageAttributeNames=[]):
+        return [msg]
 
-    # setattr(queue, 'receive_messages', _receive)
+    setattr(queue, 'receive_messages', _receive)
 
-    # def _get(config, queue_name_prefix=''):
-    #     return [queue]
+    def _get(config, queue_name_prefix=''):
+        return [queue]
 
-    # mocker.patch(
-    #     'notifications_delivery.processor.sqs_processor._get_all_queues', side_effect=_get)
+    mocker.patch(
+        'notifications_delivery.processor.sqs_processor._get_all_queues', side_effect=_get)
     return queue
 
 
