@@ -49,7 +49,7 @@ def sqs_client():
 @moto.mock_sqs
 @pytest.fixture(scope='function')
 def sqs_resource():
-    return boto.connect_sqs('the_key', 'the_secret')
+    return boto.connect_sqs('the_key', 'the_secret', region='eu-west-1')
 
 
 @pytest.fixture(scope='function')
