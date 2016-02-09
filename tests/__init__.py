@@ -19,6 +19,7 @@ def create_sqs_connection():
     return boto.connect_sqs('the_key', 'the_secret')
 
 
+@moto.mock_sqs
 def create_sqs_resource():
     return boto3.resource('sqs', region_name='eu-west-1')
 
