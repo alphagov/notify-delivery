@@ -15,6 +15,7 @@ def decrypt_content(config, encrypted_content):
     return serializer.loads(encrypted_content, salt=config.get('DANGEROUS_SALT'))
 
 
+@moto.mock_sqs
 def create_sqs_connection():
     return boto.connect_sqs('the_key', 'the_secret')
 
